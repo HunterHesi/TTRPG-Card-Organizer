@@ -12,7 +12,7 @@ Short term Updates
 
 Long term Updates
 
--Build a "Hand" feature allowing players to have the hands in view and be selectable. This may be when the project is moved away form Java to another lnaguage or even potentially a ligthweight engine like Go-Dot, which I am actively learning for other purposes.
+-Build a "Hand" feature allowing players to have the hands in view and be selectable. This may be when the project is moved away from Python to another lnaguage (not java) or even potentially a ligthweight engine like Go-Dot, which I am actively learning for other purposes.
 -Notes: Allows the user to leave notes associated with a card.
 -Tagging system + Directory Import system // This will allow users to import Cards, given them a name, add tags, and even descriptions and notes to the cards. This could be time consuming when used with TTRPG cards librariries with hundreds of cards fdor one person, however saving this data for export could be useful for 
 community driven innitiatives such as creating packages for specific games. This allows the community to load an agile and responsive card management system.
