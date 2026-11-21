@@ -8,20 +8,18 @@ from PyQt5.QtCore import Qt
 class CardManager(QMainWindow):
     def __init__(self):
         super().__init__()
+
+      # GUI first.
         self.setWindowTitle("Card Collection Manager")
         self.setGeometry(100, 100, 800, 600)
-        
-        
         self.all_cards = []
         self.user_cards = []
         self.current_profile = "Untitled Profile"
         
-       
         self.main_widget = QWidget()
         self.setCentralWidget(self.main_widget)
         self.main_layout = QHBoxLayout()
         self.main_widget.setLayout(self.main_layout)
-        
         
         self.left_panel = QVBoxLayout()
         self.all_cards_label = QLabel("Available Cards")
@@ -29,8 +27,7 @@ class CardManager(QMainWindow):
         self.all_cards_list.itemClicked.connect(self.preview_card)
         self.left_panel.addWidget(self.all_cards_label)
         self.left_panel.addWidget(self.all_cards_list)
-        
-       
+
         self.middle_panel = QVBoxLayout()
         self.add_button = QPushButton("Add →")
         self.add_button.clicked.connect(self.add_to_user_list)
@@ -41,17 +38,15 @@ class CardManager(QMainWindow):
         self.middle_panel.addWidget(self.remove_button)
         self.middle_panel.addStretch()
         
-       
         self.right_panel = QVBoxLayout()
-        
-        
+
+      # Interactive components
         self.user_section = QVBoxLayout()
         self.user_cards_label = QLabel("Your Collection")
         self.user_cards_list = QListWidget()
         self.user_cards_list.itemClicked.connect(self.preview_card)
         self.user_section.addWidget(self.user_cards_label)
         self.user_section.addWidget(self.user_cards_list)
-        
         
         self.preview_section = QVBoxLayout()
         self.preview_label = QLabel("Card Preview")
@@ -60,24 +55,18 @@ class CardManager(QMainWindow):
         self.card_preview.setMinimumSize(300, 400)
         self.preview_section.addWidget(self.preview_label)
         self.preview_section.addWidget(self.card_preview)
-        
+
         self.right_panel.addLayout(self.user_section)
         self.right_panel.addLayout(self.preview_section)
-        
-      
         self.main_layout.addLayout(self.left_panel, 2)
         self.main_layout.addLayout(self.middle_panel, 1)
         self.main_layout.addLayout(self.right_panel, 2)
-        
-       
+ 
         self.create_menu_bar()
-        
-        
         self.load_default_cards()
-    
+      
     def create_menu_bar(self):
         menu_bar = self.menuBar()
-        
         
         file_menu = menu_bar.addMenu("File")
         
@@ -90,7 +79,6 @@ class CardManager(QMainWindow):
         exit_action = file_menu.addAction("Exit")
         exit_action.triggered.connect(self.close)
         
-       
         card_menu = menu_bar.addMenu("Cards")
         
         load_cards_action = card_menu.addAction("Load Card Directory")
